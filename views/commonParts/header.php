@@ -2,11 +2,11 @@
   <h1 class="h3 px-3">Employees Management</h1>
   <section class="d-flex justify-self-start">
 
-    <form class="mr-3" action="./dashboard.php" method="GET">
+    <form class="mr-3" action="<?= URL ?>dashboard" method="POST">
       <input id="dashboardButton" class="buttons__header" type="submit" name="dashboard" value="Dashboard">
     </form>
 
-    <form action="./employee.php" method="GET">
+    <form action="<?= URL ?>dashboard/employee" method="POST">
     <input id="employeeButton" class="buttons__header" type="submit" name="employee" value="Employee">
     </form>
 

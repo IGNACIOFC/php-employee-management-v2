@@ -1,3 +1,5 @@
+const route = 'http://localhost:8080/php-employee-management-v2/';
+
 $(function () {
   $('.toast').toast({
     delay: 3000,
@@ -5,7 +7,8 @@ $(function () {
   $('.toast').toast('show');
   $('#dashboardButton').addClass('font-weight-bold');
   $('#employeeButton').addClass('text-muted');
-  requestToPHP('GET', 'getAllEmployees').done(data => {
+  console.log(route);
+  requestToPHP().done(data => {
     console.log(data);
     $('.header').after("<section id='jsGrid'></section>");
     $('#jsGrid').jsGrid({
@@ -103,9 +106,9 @@ $(function () {
   });
 });
 
-const requestToPHP = (method = 'GET', data = '') => {
+const requestToPHP = (method = 'GET', data = '', url = 'getAllEmployees') => {
   request = {
-    url: './library/employeeController.php',
+    url: `http://localhost:8080/php-employee-management-v2/dashboard/${url}`,
     data: data,
     type: method,
   };

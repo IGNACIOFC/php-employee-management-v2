@@ -12,12 +12,18 @@
 </head>
 
 <body class="h-100 d-flex justify-content-end">
+    <?php if (isset($this->message)){
+        echo "<div class='toast position-absolute d-flex justify-content-center m-3 px-2 bg-danger bg-gradient'><p class='toast-body text-white text-center h-100'>" . $this->message . "</p></div>";
+        }
+        
+    ?>
     <main class='form-signin d-flex justify-content-center w-100 h-100 align-items-center bg-light'>
+    
         <section class="container rounded border w-auto p-0 pb-4">
             <section class="login-image w-100 d-flex justify-content-center">
                 <img class="w-100" src="https://colorlib.com/etc/lf/Login_v15/images/bg-01.jpg" alt="login-image">
             </section>
-            <form class="form" action="<?php URL ?>main/login" method="POST">
+            <form class="form" action="<?= URL ?>main/login" method="POST">
                 <label class="mt-2" for="email" class="visually-hidden">Email:</label>
                 <input id="email" type="email" class="form-control" name="email" value="admin@assemblerschool.com" require>
                 <label class="mt-2" for="password" class="visually-hidden">Password:</label>
