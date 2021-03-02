@@ -1,19 +1,21 @@
 <?php
 
-class App {
-    function __construct() {
+class App
+{
+    function __construct()
+    {
         $url = $_GET['url'];
         $url = rtrim($url, '/');
         $url = explode('/', $url);
 
-        if(empty($url[0])) {
+        if (empty($url[0])) {
             require_once 'controllers/mainController.php';
             $controller = new Main();
             $controller->render();
-        }else {
+        } else {
             $archivoController = 'controllers/' . $url[0] . 'Controller.php';
 
-            if(file_exists($archivoController)){
+            if (file_exists($archivoController)) {
                 require_once $archivoController;
 
                 $controller = new $url[0];
@@ -21,7 +23,7 @@ class App {
 
                 $nparam = sizeof($url);
 
-                if($nparam > 2) {
+                if ($nparam > 2) {
                     $param = [];
                     for ($i = 2; $i < $nparam; $i++) {
                         array_push($param, $url[$i]);
@@ -35,7 +37,7 @@ class App {
             } else {
                 require_once 'controllers/erroresController.php';
                 $controller = new Errores();
-            }           
+            }
         }
     }
 }
