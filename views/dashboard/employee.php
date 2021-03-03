@@ -16,33 +16,33 @@
   ?>
 
   <section class="wrapper container">
-    <form action="<?= isset($this->employee['id']) ? URL . 'dashboard/updateEmployee/' . $this->employee['id'] : URL . 'dashboard/createEmployee'?>" method="POST" class="was-validated my-3">
+    <form action="<?= isset($this->employee['id']) ? URL . 'dashboard/updateEmployee/' . $this->employee['id'] : URL . 'dashboard/createEmployee' ?>" method="POST" class="was-validated my-3">
 
       <div class="wrapper-profile-img">
         <img src="<?= isset($this->employee['avatar']) ? $this->employee['avatar'] : URL . "assets/images/no-user.png" ?>" class="profile-img img-thumbnail rounded-circle" alt="avatar">
       </div>
 
       <div class="radio-wrapper">
-        <?php //require('imageGallery.php'); ?>
+        <?php if (isset($this->result)) require("views/dashboard/imageGallery.php"); ?>
       </div>
 
       <div class="form-group">
         <label for="name">Name:</label>
-        <input class="form-control" type="text" id="name" name="name" value="<?= isset($this->employee) ? $this->employee['name'] : ''; ?>"required>
+        <input class="form-control" type="text" id="name" name="name" value="<?= isset($this->employee) ? $this->employee['name'] : ''; ?>" required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="lastName">Last Name:</label>
-        <input class="form-control" type="text" id="lastName" name="lastName" value="<?= isset($this->employee) ? $this->employee['lastName'] : ''; ?>"required>
+        <input class="form-control" type="text" id="lastName" name="lastName" value="<?= isset($this->employee) ? $this->employee['lastName'] : ''; ?>" required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="email">Email:</label>
-        <input class="form-control" type="email" id="email" name="email" value="<?= isset($this->employee) ? $this->employee['email'] : ''; ?>"required>
+        <input class="form-control" type="email" id="email" name="email" value="<?= isset($this->employee) ? $this->employee['email'] : ''; ?>" required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
@@ -60,35 +60,35 @@
 
       <div class="form-group">
         <label for="city">City:</label>
-        <input class="form-control" type="text" id="city" name="city" value="<?= isset($this->employee) ? $this->employee['city'] : ''; ?>"required>
+        <input class="form-control" type="text" id="city" name="city" value="<?= isset($this->employee) ? $this->employee['city'] : ''; ?>" required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="streetAddress">Street Address: </label>
-        <input class="form-control" type="text" id="streetAddress" name="streetAddress" value="<?= isset($this->employee) ? $this->employee['streetAddress'] : ''; ?>"required>
+        <input class="form-control" type="text" id="streetAddress" name="streetAddress" value="<?= isset($this->employee) ? $this->employee['streetAddress'] : ''; ?>" required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="state">State: </label>
-        <input class="form-control" type="text" id="state" name="state" value="<?= isset($this->employee) ? $this->employee['state'] : ''; ?>"required>
+        <input class="form-control" type="text" id="state" name="state" value="<?= isset($this->employee) ? $this->employee['state'] : ''; ?>" required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="age">Age: </label>
-        <input class="form-control" type="number" id="age" name="age" value="<?= isset($this->employee) ? $this->employee['age'] : ''; ?>"required>
+        <input class="form-control" type="number" id="age" name="age" value="<?= isset($this->employee) ? $this->employee['age'] : ''; ?>" required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="postalCode">Postal Code: </label>
-        <input class="form-control" type="number" id="postalCode" name="postalCode" value="<?= isset($this->employee) ? $this->employee['postalCode'] : ''; ?>"required>
+        <input class="form-control" type="number" id="postalCode" name="postalCode" value="<?= isset($this->employee) ? $this->employee['postalCode'] : ''; ?>" required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
@@ -103,7 +103,7 @@
       <input type="hidden" name="id" value="<?= isset($this->employee) ? $this->employee['id'] : ''; ?>">
 
       <input class="btn btn-primary" type="submit" value="<?= isset($this->employee) ? "Update" : "Create" ?>" name="employeePage">
-      <a href= <?= URL . "dashboard"?>>Return</a>
+      <a href=<?= URL . "dashboard" ?>>Return</a>
     </form>
   </section>
 
