@@ -1,4 +1,3 @@
-const route = 'http://localhost/php-employee-management-v2/';
 
 $(function () {
   $('.toast').toast({
@@ -106,7 +105,7 @@ $(function () {
 
 const requestToPHP = (method = 'GET', data = '', url = 'getAllEmployees') => {
   request = {
-    url: `http://localhost/php-employee-management-v2/dashboard/${url}`,
+    url: `${route}dashboard/${url}`,
     data: data,
     type: method,
   };
