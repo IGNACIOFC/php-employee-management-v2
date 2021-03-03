@@ -57,6 +57,16 @@ class DashboardModel extends Model {
             return $e;
         }
     }
+
+    function delete($id) {
+        $conn = $this->database->connect()->prepare("DELETE FROM employees WHERE id = :id");
+        try {
+            $conn->execute(['id'=>$id]);
+            return 'User deleted correctly!';
+        } catch (PDOException $e){
+            return $e;
+        }
+    }
 }
 
 

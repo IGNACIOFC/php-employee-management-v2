@@ -23,7 +23,7 @@ $(function () {
       data: data,
 
       onItemDeleting: args =>
-        requestToPHP('DELETE', { data: args.item.id }).done(() =>
+        requestToPHP('DELETE', { id: args.item.id }, 'deleteEmployee').done(() =>
           notifyToast(`${args.item.name} deleted`),
         ),
       onItemInserting: args =>
@@ -34,7 +34,7 @@ $(function () {
           notifyToast(`${args.item.name} created`);
         }),
       onItemUpdating: args =>
-        requestToPHP('PUT', args.item).done(() =>
+        requestToPHP('PUT',  args.item, `updateEmployee/${args.item.id}`).done(() =>
           notifyToast(`${args.item.name} updated`),
         ),
       rowClick: function (args) {

@@ -24,7 +24,7 @@ class Dashboard extends Controller {
     }
 
     function updateEmployee($param) {
-        $data = $_POST;
+        $data = isset($_POST['name']) ? $_POST : $this->getQueryStringParameters();
         $this->view->message = $this->model->update($param[0], $data);
         $this->view->render('dashboard/index');
     }
@@ -33,5 +33,16 @@ class Dashboard extends Controller {
         $data = $_POST;
         $this->view->message = $this->model->create($data);
         $this->view->render('dashboard/index');
+    }
+
+    function deleteEmployee() {
+        $query = $this->getQueryStringParameters();
+        $this->view->message = $this->model->delete($query['id']);
+        $this->view->render('dashboard/index');
+    }
+
+    function getQueryStringParameters(): array {
+        parse_str(file_get_contents("php://input"), $query);
+        return $query;
     }
 }
