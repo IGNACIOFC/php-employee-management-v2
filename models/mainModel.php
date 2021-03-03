@@ -11,13 +11,12 @@ class MainModel extends Model {
             $conn->execute(['email'=>$email]);
             $user = $conn->fetch();
             if(password_verify($password, $user['password'])) {
-                return true;
+                return $user;
             } else {
-                return false;
+                return null;
             }
         } catch (PDOException $e){
             return $e;
         }
     }
-    
 }

@@ -14,15 +14,36 @@ class Main extends Controller {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        if ($this->model->checkCredentials($email, $password)) {
-
-            session_start();
-            $_SESSION['time'] = time();
-            $_SESSION['lifetime'] = 600;
+        if ($user = $this->model->checkCredentials($email, $password)) {
+            echo $user;
+            $this->saveSession($user);
             header('location:'. URL .'dashboard');
         } else {
             $this->view->message = 'Incorrect Credentials';
             $this->view->render('main/index');
         }
+    }
+
+    private function saveSession($user)
+    {
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['name'] = $user['name'];
+        $_SESSION['init'] = time();
+        $_SESSION['life'] = 600;
+    }
+
+    function logout()
+    {
+        session_destroy();
+        $this->view->message = "Logout correctly";
+        $this->view->render('main/index');
+    }
+
+    function logoutByTime()
+    {
+        session_destroy();
+        $this->view->message = "Your session has expired";
+        $this->view->render('main/index');
     }
 }

@@ -11,7 +11,7 @@
     </form>
 
   </section>
-  <form class="ml-auto mr-3" action="./library/loginController.php" method="GET">
+  <form class="ml-auto mr-3" action="<?= URL ?>main/logout" method="POST">
     <input class="btn btn-link" type="submit" name="logout" value="Logout">
   </form>
 </header>
