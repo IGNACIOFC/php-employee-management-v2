@@ -27,7 +27,7 @@ $(function () {
           notifyToast(`${args.item.name} deleted`),
         ),
       onItemInserting: args =>
-        requestToPHP('POST', args.item).done(resp => {
+        requestToPHP('POST', args.item, 'createEmployee').done(resp => {
           args.item.id = resp;
           args.item.lastName = '';
           args.item.gender = '';

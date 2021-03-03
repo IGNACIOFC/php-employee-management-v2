@@ -48,11 +48,26 @@ class DashboardModel extends Model {
     }
 
     function create($data) {
+        if(!isset($data['lastName'])) {
+            $data['lastName'] = null;
+            $data['gender'] = null;
+        }
         $conn = $this->database->connect()->prepare("INSERT INTO employees (name, lastName, email, gender, city, streetAddress, state, age,postalCode, phoneNumber)
         VALUES (:name, :lastName, :email, :gender, :city, :streetAddress, :state, :age, :postalCode, :phoneNumber)");
         try {
             $conn->execute(['name'=>$data['name'], 'lastName'=>$data['lastName'], 'email'=>$data['email'], 'gender'=>$data['gender'], 'city'=>$data['city'], 'streetAddress'=>$data['streetAddress'], 'state'=>$data['state'], 'age'=>$data['age'], 'postalCode'=>$data['postalCode'], 'phoneNumber'=>$data['phoneNumber']]);
             return 'User created correctly!';
+        } catch (PDOException $e){
+            return $e;
+        }
+    }
+
+    function getIdByEmail($email) {
+        $conn = $this->database->connect()->prepare("SELECT id FROM employees WHERE email = :email");
+        try {
+            $conn->execute(['email'=>$email]);
+            $response = $conn->fetch();
+            return $response['id'];
         } catch (PDOException $e){
             return $e;
         }
@@ -68,6 +83,4 @@ class DashboardModel extends Model {
         }
     }
 }
-
-
 ?>

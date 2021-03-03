@@ -32,7 +32,12 @@ class Dashboard extends Controller {
     function createEmployee() {
         $data = $_POST;
         $this->view->message = $this->model->create($data);
-        $this->view->render('dashboard/index');
+        if(isset($data['id'])) {
+            $this->view->render('dashboard/employee');
+        } else {
+            header('Content-Type: application/json');
+            echo json_encode($this->model->getIdByEmail($data['email']));
+        }
     }
 
     function deleteEmployee() {
