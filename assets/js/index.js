@@ -1,4 +1,4 @@
-const route = 'http://localhost:8080/php-employee-management-v2/';
+const route = 'http://localhost/php-employee-management-v2/';
 
 $(function () {
   $('.toast').toast({
@@ -7,7 +7,7 @@ $(function () {
   $('.toast').toast('show');
   $('#dashboardButton').addClass('font-weight-bold');
   $('#employeeButton').addClass('text-muted');
-  console.log(route);
+
   requestToPHP().done(data => {
     console.log(data);
     $('.header').after("<section id='jsGrid'></section>");
@@ -19,6 +19,8 @@ $(function () {
       paging: true,
       datatype: 'json',
       editing: true,
+      deleteConfirm: 'Do you really want to delete the client?',
+      data: data,
 
       onItemDeleting: args =>
         requestToPHP('DELETE', { data: args.item.id }).done(() =>
@@ -35,12 +37,8 @@ $(function () {
         requestToPHP('PUT', args.item).done(() =>
           notifyToast(`${args.item.name} updated`),
         ),
-
-      deleteConfirm: 'Do you really want to delete the client?',
-      data: data,
-
       rowClick: function (args) {
-        window.location.href = `employee.php?id=${args.item.id}`;
+        window.location.href = `${route}dashboard/getEmployee/${args.item.id}`;
       },
 
       fields: [
@@ -108,7 +106,7 @@ $(function () {
 
 const requestToPHP = (method = 'GET', data = '', url = 'getAllEmployees') => {
   request = {
-    url: `http://localhost:8080/php-employee-management-v2/dashboard/${url}`,
+    url: `http://localhost/php-employee-management-v2/dashboard/${url}`,
     data: data,
     type: method,
   };

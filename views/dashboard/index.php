@@ -16,6 +16,11 @@
 
 <body>
   <?php
+
+  if (isset($this->message)) {
+    echo "<div class='toast position-absolute justify-content-center px-1 bg-success'><p class='toast-body text-white text-center h-100'>" . $this->message . "</p></div>";
+  }
+
   include("views/commonParts/header.php");
   include("views/commonParts/footer.php");
   ?>

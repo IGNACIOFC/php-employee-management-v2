@@ -31,5 +31,5 @@ class Database {
       } catch (PDOException $e) {
         print_r('Error connection: ' . $e->getMessage());
       }
-    }      
+    }
 }

@@ -3,7 +3,7 @@
 class Main extends Controller {
     function __construct() {
         parent::__construct();
-        
+
     }
 
     function render() {
@@ -15,7 +15,7 @@ class Main extends Controller {
         $password = $_POST['password'];
 
         if ($this->model->checkCredentials($email, $password)) {
-            
+
             session_start();
             $_SESSION['time'] = time();
             $_SESSION['lifetime'] = 600;
