@@ -7,7 +7,7 @@
     </form>
 
     <form action="<?= URL ?>dashboard/employee" method="POST">
-    <input id="employeeButton" class="buttons__header" type="submit" name="employee" value="Employee">
+      <input id="employeeButton" class="buttons__header" type="submit" name="employee" value="Employee">
     </form>
 
   </section>

@@ -9,7 +9,6 @@ require_once 'library/app.php';
 $app = new App();
 
 session_start();
-/* session_destroy(); */
 if (isset($_SESSION['life'])) {
     if ((time() - $_SESSION['init'] > $_SESSION['life']) && !($app->getController() == "main" && $app->getMethod() == "logoutByTime")) {
         header("Location: " . URL . "main/logoutByTime");
