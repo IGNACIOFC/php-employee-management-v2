@@ -5,9 +5,10 @@ $(function () {
   $('.toast').toast('show');
   $('#dashboardButton').addClass('font-weight-bold');
   $('#employeeButton').addClass('text-muted');
+  $('#usersButton').addClass('text-muted');
+  $('#userButton').addClass('text-muted');
 
   requestToPHP().done(data => {
-    console.log(data);
     $('.header').after("<section id='jsGrid'></section>");
     $('#jsGrid').jsGrid({
       width: '100%',

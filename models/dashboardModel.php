@@ -14,7 +14,7 @@ class DashboardModel extends Model
             $conn->execute();
             return $conn->fetchAll();
         } catch (PDOException $e) {
-            return null;
+            return $e;
         }
     }
 

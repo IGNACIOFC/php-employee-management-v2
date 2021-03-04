@@ -100,8 +100,6 @@
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
-      <input type="hidden" name="id" value="<?= isset($this->employee) ? $this->employee['id'] : ''; ?>">
-
       <input class="btn btn-primary" type="submit" value="<?= isset($this->employee) ? "Update" : "Create" ?>" name="employeePage">
       <a href=<?= URL . "dashboard" ?>>Return</a>
     </form>
@@ -118,6 +116,8 @@
   <script>
     $('#dashboardButton').addClass('text-muted');
     $('#employeeButton').addClass('font-weight-bold');
+    $('#usersButton').addClass('text-muted');
+    $('#userButton').addClass('text-muted');
   </script>
 
 </body>
