@@ -52,7 +52,7 @@
         <select class="form-control" id="uGender" name="gender" required>
           <option value="man" <?= isset($this->employee) ? ($this->employee['gender'] == "man" ? "selected" : "") : '' ?>>Man</option>
           <option value="woman" <?= isset($this->employee) ? ($this->employee['gender'] == "woman" ? "selected" : "") : '' ?>>Woman</option>
-          <option value="nobinary" selected <?= isset($this->employee) ? ($this->employee['gender'] == "nobinary" ? "selected" : "") : '' ?>>No binary</option>
+          <option value="nobinary" <?= isset($this->employee) ? ($this->employee['gender'] == "nobinary" ? "selected" : "") : '' ?>>No binary</option>
         </select>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>

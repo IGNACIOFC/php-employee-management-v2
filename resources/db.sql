@@ -16,7 +16,7 @@ CREATE TABLE employees (
     state VARCHAR(50) NOT NULL,
     postalCode VARCHAR(50) NOT NULL,
     phoneNumber VARCHAR(50) NOT NULL UNIQUE,
-    avatar VARCHAR(100) DEFAULT 'http://localhost/php-employee-management-v2/assets/images/no-user.png',
+    avatar VARCHAR(1000) DEFAULT 'http://localhost/php-employee-management-v2/assets/images/no-user.png',
     PRIMARY KEY (id)
 );
 
