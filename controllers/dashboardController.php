@@ -28,7 +28,6 @@ class Dashboard extends Controller
     {
         $this->view->employee = $this->model->getById($param[0]);
         $gender = $this->view->employee['gender'] == 'man' ? 'male' : ($this->view->employee['gender'] == "woman" ? "female" : "");
-        var_dump($gender);
         if (isset($this->view->employee['avatar'])) {
             $this->view->result = $this->model->uifacesRequest($this->view->employee['age'], $gender, 7);
             array_push($this->view->result, array("photo" => $this->view->employee['avatar']));

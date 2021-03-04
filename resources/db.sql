@@ -10,13 +10,13 @@ CREATE TABLE employees (
     lastName VARCHAR(50) DEFAULT '""',
     email VARCHAR(50) NOT NULL UNIQUE,
     gender VARCHAR(50) DEFAULT '""',
-    age INT(3) NOT NULL,
+    age TINYINT(3) NOT NULL,
     streetAddress VARCHAR(50) NOT NULL,
     city VARCHAR(50) NOT NULL,
-    state VARCHAR(50) NOT NULL,
+    state VARCHAR(3) NOT NULL,
     postalCode VARCHAR(50) NOT NULL,
     phoneNumber VARCHAR(50) NOT NULL UNIQUE,
-    avatar VARCHAR(1000) DEFAULT 'http://localhost/php-employee-management-v2/assets/images/no-user.png',
+    avatar text DEFAULT 'http://localhost/php-employee-management-v2/assets/images/no-user.png',
     PRIMARY KEY (id)
 );
 
