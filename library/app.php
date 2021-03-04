@@ -93,4 +93,3 @@ class App
         $this->params = sizeof($this->url) > 2 ? $this->arrayParams($this->url) : null;
     }
 }
-

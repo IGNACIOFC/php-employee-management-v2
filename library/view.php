@@ -1,7 +1,9 @@
 <?php
 
-class View {
-    function render($name) {
+class View
+{
+    function render($name)
+    {
         require 'views/' . $name . '.php';
     }
 }

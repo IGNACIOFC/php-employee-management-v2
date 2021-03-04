@@ -1,4 +1,3 @@
-
 $(function () {
   $('.toast').toast({
     delay: 3000,
@@ -22,9 +21,11 @@ $(function () {
       data: data,
 
       onItemDeleting: args =>
-        requestToPHP('DELETE', { id: args.item.id }, 'deleteEmployee').done(() =>
-          notifyToast(`${args.item.name} deleted`),
-        ),
+        requestToPHP(
+          'DELETE',
+          { id: args.item.id },
+          'deleteEmployee',
+        ).done(() => notifyToast(`${args.item.name} deleted`)),
       onItemInserting: args =>
         requestToPHP('POST', args.item, 'createEmployee').done(resp => {
           args.item.id = resp;
@@ -33,9 +34,11 @@ $(function () {
           notifyToast(`${args.item.name} created`);
         }),
       onItemUpdating: args =>
-        requestToPHP('PUT',  args.item, `updateEmployee/${args.item.id}`).done(() =>
-          notifyToast(`${args.item.name} updated`),
-        ),
+        requestToPHP(
+          'PUT',
+          args.item,
+          `updateEmployee/${args.item.id}`,
+        ).done(() => notifyToast(`${args.item.name} updated`)),
       rowClick: function (args) {
         window.location.href = `${route}dashboard/getEmployee/${args.item.id}`;
       },
